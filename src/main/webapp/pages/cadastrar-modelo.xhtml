@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<ui:composition template="/WEB-INF/_template.xhtml">
+	<ui:define name="conteudo">
+		<p:panel>
+			<h:form>
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Descrição" for="d" />
+					<p:inputText value="#{modeloBean.modelo.descricaoModelo}" id="d" />
+
+					<p:outputLabel value="Categoria" for="cat" />
+					<p:selectOneMenu id="cat"
+						value="#{modeloBean.modelo.categoria}" style="width:125px">
+						<f:selectItem itemLabel="Selecione uma Categoria" itemValue="" />
+						<f:selectItem itemLabel="Sedan" itemValue="Sedan" />
+						<f:selectItem itemLabel="Hatch" itemValue="Hatch" />
+						<f:selectItem itemLabel="Pick-up" itemValue="Pick-up" />
+						<f:selectItem itemLabel="SUV" itemValue="SUV" />
+						<f:selectItem itemLabel="Sport" itemValue="Sport" />
+					</p:selectOneMenu>
+				</p:panelGrid>
+				<p:commandButton value="Cadastrar" update="@form"
+					action="#{modeloBean.cadastrar()}" />
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

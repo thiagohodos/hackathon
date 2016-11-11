@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<ui:composition template="/WEB-INF/_template.xhtml">
+	<ui:define name="conteudo">
+		<p:panel>
+			<h:form>
+				<p:panel header="Agente" style="width: 600px">
+
+					<p:outputLabel value="Nome:" for="nome" />
+					<p:inputText value="#{agenteBean.agente.nome}" id="nome" />
+					<br />
+					<p:outputLabel value="Data contratação:" />
+					<p:calendar value="#{agenteBean.agente.dtContratacao}" />
+					<p:outputLabel rendered="#{agenteBean.verificado}" id="verificado"
+						value="Tempo serviço:" for="tempo" />
+					<p:inputText rendered="#{agenteBean.verificado}"
+						value="#{agenteBean.agente.tempoServico}" id="tempo" />
+				</p:panel>
+				<p:commandButton value="Cadastrar" update="@form"
+					action="#{agenteBean.cadastrar()}" />
+			
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

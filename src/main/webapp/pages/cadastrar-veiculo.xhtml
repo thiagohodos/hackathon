@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<ui:composition template="/WEB-INF/_template.xhtml">
+	<ui:define name="conteudo">
+		<p:panel>
+			<h:form>
+				<p:panelGrid columns="2">
+					<p:outputLabel value="UF" for="uf" />
+					<p:inputText value="#{veiculoBean.veiculo.uf}" id="uf" size="3" maxlength="2" />
+
+					<p:outputLabel value="Placa" for="pl" />
+					<p:inputMask mask="aaa9999" value="#{veiculoBean.veiculo.placa}" id="pl" />
+
+					<p:outputLabel for="pro" value="Proprietario " />
+					<p:selectOneMenu id="pro" value="#{veiculoBean.idProprietario}">
+						<f:selectItem itemLabel="Selecione um Proprietario" itemValue="" />
+						<f:selectItems value="#{veiculoBean.proprietarios}" var="p"
+							itemLabel="#{p.nome}" itemValue="#{p.id}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="mo" value="Modelo " />
+					<p:selectOneMenu id="mo" value="#{veiculoBean.idModelo}">
+						<f:selectItem itemLabel="Selecione um Modelo" itemValue="" />
+						<f:selectItems value="#{veiculoBean.modelos}" var="p"
+							itemLabel="#{p.descricaoModelo}" itemValue="#{p.idModelo}" />
+					</p:selectOneMenu>
+				</p:panelGrid>
+				<p:commandButton value="Cadastrar" update="@form"
+					action="#{veiculoBean.cadastrar()}" />
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

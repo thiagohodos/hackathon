@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<ui:composition template="/WEB-INF/_template.xhtml">
+	<ui:define name="conteudo">
+		<p:panel>
+			<h:form>
+				<p:dataTable var="proprietario"
+					value="#{proprietarioBean.proprietarios}">
+					<p:column headerText="Nome">
+						<h:outputText value="#{proprietario.nome}" />
+					</p:column>
+					<p:column headerText="CPF">
+						<h:outputText value="#{proprietario.cpf}" />
+					</p:column>
+					<p:column headerText="Sexo">
+						<h:outputText value="#{proprietario.sexo}" />
+					</p:column>
+					<p:column headerText="Data de Nascimento">
+						<h:outputText value="#{proprietario.dtNascimento}" />
+					</p:column>
+					<p:column headerText="Ação">
+						<p:commandButton value="Exluir"
+							actionListener="#{proprietarioBean.excluir(proprietario)}"
+							update="@form" />
+					</p:column>
+				</p:dataTable>
+				<p:commandButton value="Atualizar" update="@form" />
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

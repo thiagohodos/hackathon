@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtRWoWocgAvKjMcdAbJdZfa3og9MdzlBw" />
+</h:head>
+<h:body>
+	<h:form>
+		<p:megaMenu orientation="horizontal" style="margin-top:20px">
+			<p:submenu label="Infração" icon="ui-icon-check">
+				<p:column>
+					<p:submenu label="cadastrar">
+						<p:menuitem value="Infração" url="/pages/cadastrar-infracao.xhtml" />
+						<p:menuitem value="Local"
+							url="/pages/cadastrar-local-infracao.xhtml" />
+						<p:menuitem value="Tipo"
+							url="/pages/cadastrar-tipo-infracao.xhtml" />
+					</p:submenu>
+				</p:column>
+			</p:submenu>
+			<p:submenu label="Cadastro" icon="ui-icon-check">
+				<p:column>
+					<p:submenu label="cadastrar">
+						<p:menuitem value="Agente" url="/pages/cadastrar-agente.xhtml" />
+					</p:submenu>
+				</p:column>
+			</p:submenu>
+			<p:submenu label="Veiculos" icon="ui-icon-check">
+				<p:column>
+					<p:submenu label="cadastrar">
+						<p:menuitem value="Veiculo" url="/pages/cadastrar-veiculo.xhtml" />
+						<p:menuitem value="Proprietario"
+							url="/pages/cadastrar-proprietario.xhtml" />
+						<p:menuitem value="Modelo" url="/pages/cadastrar-modelo.xhtml" />
+					</p:submenu>
+				</p:column>
+			</p:submenu>
+
+			<p:submenu label="Consulta" icon="ui-icon-check">
+				<p:column>
+					<p:submenu>
+						<p:menuitem value="Veiculos" url="/pages/consultar-veiculos.xhtml" />
+						<p:menuitem value="Proprietarios"
+							url="/pages/consultar-proprietarios.xhtml" />
+						<p:menuitem value="Agentes" url="/pages/consultar-agentes.xhtml" />
+						<p:menuitem value="Infrações"
+							url="/pages/consultar-infracoes.xhtml" />
+						<p:menuitem value="Modelos" url="/pages/consultar-modelos.xhtml" />
+					</p:submenu>
+				</p:column>
+			</p:submenu>
+
+		</p:megaMenu>
+	</h:form>
+	<ui:insert name="conteudo" />
+	<p:messages id="messages" showDetail="true" autoUpdate="true"
+		closable="true" />
+</h:body>
+</html>
